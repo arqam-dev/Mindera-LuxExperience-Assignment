@@ -1,0 +1,51 @@
+@use '../variables' as *;
+
+.film-card {
+  background: $secondary-color;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  
+  &:hover {
+    transform: translateY(-4px);
+  }
+  
+  .film-poster {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+  
+  .film-title {
+    padding: $spacing-sm;
+    font-size: 1rem;
+    color: $text-primary;
+    margin: 0;
+  }
+  
+  .film-rating {
+    padding: 0 $spacing-sm $spacing-sm;
+    color: $text-secondary;
+    margin: 0;
+  }
+  
+  // Category-specific styling as per assignment
+  &--popular {
+    .film-title {
+      font-family: $font-primary; // Helvetica Neue
+    }
+  }
+  
+  &--top_rated {
+    .film-title {
+      font-family: $font-secondary; // Georgia serif
+    }
+  }
+  
+  &--now_playing {
+    .film-title {
+      font-family: $font-accent; // Impact
+    }
+  }
+}

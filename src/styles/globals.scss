@@ -1,4 +1,7 @@
 @use './variables.scss' as *;
+@use './components/loading' as *;
+@use './components/film-card' as *;
+@use './components/carousel' as *;
 
 * {
   margin: 0;
@@ -45,4 +48,38 @@ body {
   background-color: transparent;
   color: $text-primary;
   border: 1px solid $text-primary;
+}
+
+
+.demo-notice {
+  background: $primary-color;
+  color: $text-primary;
+  padding: $spacing-sm;
+  text-align: center;
+  margin: $spacing-md;
+  border-radius: 4px;
+  
+  p {
+    margin: 0;
+    font-weight: bold;
+  }
+}
+
+.app-header {
+  text-align: center;
+  padding: $spacing-lg;
+  
+  h1 {
+    color: $text-primary;
+    margin-bottom: $spacing-sm;
+  }
+  
+  p {
+    color: $text-secondary;
+    margin-bottom: $spacing-md;
+  }
+}
+
+.app-main {
+  padding: 0 $spacing-md;
 }

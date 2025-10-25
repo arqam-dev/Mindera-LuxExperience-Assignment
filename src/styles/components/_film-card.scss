@@ -6,43 +6,58 @@
   overflow: hidden;
   transition: transform 0.3s ease;
   cursor: pointer;
-  
+  position: relative;
+
   &:hover {
     transform: translateY(-4px);
   }
-  
-  .film-poster {
+
+  &__image-container {
+    position: relative;
     width: 100%;
     height: 300px;
-    object-fit: cover;
+    overflow: hidden;
   }
-  
+
+  .film-poster {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover .film-poster {
+    transform: scale(1.05);
+  }
+
   .film-title {
     padding: $spacing-sm;
     font-size: 1rem;
     color: $text-primary;
     margin: 0;
+    line-height: 1.3;
   }
-  
+
   .film-rating {
     padding: 0 $spacing-sm $spacing-sm;
     color: $text-secondary;
     margin: 0;
+    font-size: 0.9rem;
   }
-  
+
   // Category-specific styling as per assignment
   &--popular {
     .film-title {
       font-family: $font-primary; // Helvetica Neue
     }
   }
-  
+
   &--top_rated {
     .film-title {
       font-family: $font-secondary; // Georgia serif
     }
   }
-  
+
   &--now_playing {
     .film-title {
       font-family: $font-accent; // Impact

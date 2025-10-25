@@ -154,3 +154,41 @@ npm install @tanstack/react-query axios
 # Double the length of each carousel array for better scrolling
 ```
 *Each category now has 12 films instead of 6 for better carousel experience*
+
+## Phase 4: Film Detail Page & Category Styling ✅
+
+### Step 24: Install Routing & State Management
+```bash
+npm install react-router-dom zustand
+```
+*Added React Router for navigation and Zustand for state management*
+
+### Step 25: Create Wishlist Store
+```bash
+# Create src/store/wishlistStore.ts with Zustand store
+```
+*Persistent wishlist state with localStorage integration*
+
+### Step 26: Build Film Detail Components
+```bash
+# Create FilmDetail, FilmDetailPage, WishlistPage, WishlistButton components
+```
+*Complete film detail page with category-specific styling*
+
+### Step 27: Implement Category-Specific Styling
+```bash
+# Add category-specific fonts and button styles to FilmDetail
+```
+*Different fonts and button styles for Popular, Top Rated, Now Playing*
+
+### Step 28: Add Navigation & Routing
+```bash
+# Create Header component and set up React Router
+```
+*Navigation with wishlist counter and routing between pages*
+
+### Step 29: Update Film Cards
+```bash
+# Add WishlistButton to FilmCard and enable navigation
+```
+*Clickable film cards with wishlist functionality and navigation*

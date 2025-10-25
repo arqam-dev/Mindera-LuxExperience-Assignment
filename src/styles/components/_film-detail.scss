@@ -1,0 +1,210 @@
+@use '../variables' as *;
+
+.film-detail {
+  min-height: 100vh;
+  position: relative;
+  color: $text-primary;
+  
+  &__backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    
+    &-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    &-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.6) 50%,
+        rgba(0, 0, 0, 0.9) 100%
+      );
+    }
+  }
+  
+  &__content {
+    display: flex;
+    gap: $spacing-xl;
+    padding: $spacing-xl;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  
+  &__poster {
+    flex-shrink: 0;
+    width: 300px;
+    
+    &-image {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    }
+  }
+  
+  &__info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+  }
+  
+  &__title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.2;
+  }
+  
+  &__meta {
+    display: flex;
+    gap: $spacing-lg;
+    align-items: center;
+    font-size: 1.1rem;
+  }
+  
+  &__rating {
+    color: $primary-color;
+    font-weight: bold;
+  }
+  
+  &__date {
+    color: $text-secondary;
+  }
+  
+  &__overview {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: $spacing-md 0;
+  }
+  
+  &__actions {
+    margin-top: $spacing-lg;
+  }
+  
+  &__wishlist-btn {
+    padding: $spacing-md $spacing-xl;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: $primary-color;
+    color: $text-primary;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba($primary-color, 0.4);
+    }
+    
+    &--active {
+      background: $text-primary;
+      color: $primary-color;
+    }
+  }
+  
+  // Category-specific styling
+  &--popular {
+    .film-detail__title {
+      font-family: $font-primary;
+    }
+    
+    .film-detail__wishlist-btn {
+      background: $primary-color;
+      border: 2px solid $primary-color;
+      
+      &:hover {
+        background: transparent;
+        color: $primary-color;
+      }
+      
+      &--active {
+        background: $text-primary;
+        color: $primary-color;
+      }
+    }
+  }
+  
+  &--top_rated {
+    .film-detail__title {
+      font-family: $font-secondary;
+      font-style: italic;
+    }
+    
+    .film-detail__wishlist-btn {
+      background: $secondary-color;
+      border: 2px solid $text-primary;
+      
+      &:hover {
+        background: $text-primary;
+        color: $secondary-color;
+      }
+      
+      &--active {
+        background: $text-primary;
+        color: $secondary-color;
+      }
+    }
+  }
+  
+  &--now_playing {
+    .film-detail__title {
+      font-family: $font-accent;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    
+    .film-detail__wishlist-btn {
+      background: linear-gradient(45deg, $primary-color, #ff6b6b);
+      border: none;
+      
+      &:hover {
+        background: linear-gradient(45deg, #ff6b6b, $primary-color);
+      }
+      
+      &--active {
+        background: $text-primary;
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .film-detail {
+    &__content {
+      flex-direction: column;
+      padding: $spacing-md;
+    }
+    
+    &__poster {
+      width: 200px;
+      align-self: center;
+    }
+    
+    &__title {
+      font-size: 2rem;
+    }
+    
+    &__meta {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: $spacing-sm;
+    }
+  }
+}

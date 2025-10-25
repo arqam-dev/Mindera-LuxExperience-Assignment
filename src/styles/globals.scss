@@ -2,6 +2,9 @@
 @use './components/loading' as *;
 @use './components/film-card' as *;
 @use './components/carousel' as *;
+@use './components/film-detail' as *;
+@use './components/wishlist' as *;
+@use './components/header' as *;
 
 * {
   margin: 0;

@@ -8,5 +8,8 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist'
+  },
+  ssr: {
+    noExternal: ['@tanstack/react-query']
   }
 })

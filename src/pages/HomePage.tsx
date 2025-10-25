@@ -14,21 +14,14 @@ export const HomePage = () => {
 
   return (
     <div className="home-page">
-      <header className="home-page__header">
-        <h1>LuxExperience Mindera Assignment</h1>
-        <p>Film Browsing Application</p>
-        
-        {!hasApiKey && (
-          <div className="demo-notice">
-            <p>🎬 Demo Mode: Using mock data (no API key required)</p>
-          </div>
-        )}
-      </header>
-      
       <main className="home-page__main">
         <Carousel title="Popular Films" films={popularFilms || []} category="popular" />
         <Carousel title="Top Rated Films" films={topRatedFilms || []} category="top_rated" />
         <Carousel title="Now Playing Films" films={nowPlayingFilms || []} category="now_playing" />
+        
+        <footer className="home-page__footer">
+          <p>Developed by <strong>Muhammad Arqam</strong></p>
+        </footer>
       </main>
     </div>
   );

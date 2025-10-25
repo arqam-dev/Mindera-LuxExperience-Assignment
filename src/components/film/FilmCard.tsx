@@ -19,19 +19,36 @@ export const FilmCard = ({ film, category }: FilmCardProps) => {
     navigate(`/film/${film.id}/${category}`);
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      handleCardClick();
+    }
+  };
+
   return (
-    <div className={`film-card film-card--${category}`} onClick={handleCardClick}>
+    <div 
+      className={`film-card film-card--${category}`} 
+      onClick={handleCardClick}
+      onKeyDown={handleKeyDown}
+      tabIndex={0}
+      role="button"
+      aria-label={`View details for ${film.title}`}
+    >
       <div className="film-card__image-container">
         <img 
           src={`https://image.tmdb.org/t/p/w300${film.poster_path}`} 
-          alt={film.title}
+          alt={`${film.title} movie poster`}
           className="film-poster"
           onError={handleImageError}
+          loading="lazy"
         />
         <WishlistButton film={film} category={category} />
       </div>
       <h3 className="film-title">{film.title}</h3>
-      <p className="film-rating">⭐ {film.vote_average.toFixed(1)}</p>
+      <p className="film-rating" aria-label={`Rating: ${film.vote_average.toFixed(1)} out of 10`}>
+        ⭐ {film.vote_average.toFixed(1)}
+      </p>
     </div>
   );
 };

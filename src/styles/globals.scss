@@ -86,3 +86,27 @@ body {
 .app-main {
   padding: 0 $spacing-md;
 }
+
+.home-page {
+  &__main {
+    padding: 0;
+  }
+  
+  &__footer {
+    text-align: center;
+    padding: $spacing-xl $spacing-md;
+    margin-top: $spacing-xl;
+    border-top: 1px solid $secondary-color;
+    
+    p {
+      color: $text-secondary;
+      font-size: 0.9rem;
+      margin: 0;
+      
+      strong {
+        color: $text-primary;
+        font-weight: 600;
+      }
+    }
+  }
+}

@@ -33,6 +33,16 @@ export const Carousel = ({ title, films, category }: CarouselProps) => {
     }
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      scroll('left');
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      scroll('right');
+    }
+  };
+
   return (
     <div className={`carousel carousel--${category}`}>
       <h2 className="carousel-title">{title}</h2>
@@ -42,6 +52,7 @@ export const Carousel = ({ title, films, category }: CarouselProps) => {
           onClick={() => scroll('left')}
           disabled={!canScrollLeft}
           aria-label="Scroll left"
+          type="button"
         >
           ‹
         </button>
@@ -50,6 +61,10 @@ export const Carousel = ({ title, films, category }: CarouselProps) => {
           className="carousel-container"
           ref={scrollRef}
           onScroll={handleScroll}
+          onKeyDown={handleKeyDown}
+          tabIndex={0}
+          role="region"
+          aria-label={`${title} carousel`}
         >
           <div className="carousel-track">
             {films.map(film => (
@@ -65,6 +80,7 @@ export const Carousel = ({ title, films, category }: CarouselProps) => {
           onClick={() => scroll('right')}
           disabled={!canScrollRight}
           aria-label="Scroll right"
+          type="button"
         >
           ›
         </button>
